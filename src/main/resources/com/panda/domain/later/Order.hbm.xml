@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+        "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class table="Address" name="com.panda.later.Order">
+        <id name="orderID" type="long" column="ID">
+            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+                <param name="sequence_name">ADDRESS_SEQ</param>
+            </generator>
+        </id>
+
+        <property name="date" column="DATE_ORDERED" type="date" not-null="true"/>
+
+        <!--<many-to-one name="customer" class="com.panda.domain.Customer" column="PERSON_ID"/>-->
+
+
+        <property name="status" column="STATUS" not-null="false">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.panda.later.Status</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+
+    </class>
+
+
+</hibernate-mapping>

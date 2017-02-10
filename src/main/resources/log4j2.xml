@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration
+        status="DEBUG">
+    <!-- Appenders are the "destination for logs -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- How the log will print -->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS [%t] %-5level %logger{36} - %mag%n"/>
+        </Console>
+    </Appenders>
+
+    <!-- Loggers are multiple loggers configuration for packages -->
+    <Loggers>
+        <logger name="org.apache.http.wire" level="INFO"/>
+        <logger name="org.apache.http.client" level="INFO"/>
+
+        <!-- There is a ROOT logger, which applies to all packages -->
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
