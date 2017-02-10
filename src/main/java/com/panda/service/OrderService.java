@@ -1,6 +1,6 @@
 package com.panda.service;
 
-import com.panda.domain.Customer;
+import com.panda.domain.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component
 @Transactional
-public class CustomerService {
+public class OrderService {
 
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void save(Customer customer) {
+    public void save(Order order) {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(customer);
+        session.saveOrUpdate(order);
     }
 }

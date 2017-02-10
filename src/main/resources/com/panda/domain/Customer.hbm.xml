@@ -4,23 +4,23 @@
 
 <hibernate-mapping>
     <class table="PandaTable" name="com.panda.domain.Customer">
-        <id name ="id" type = "long" column="ID">
+        <id name ="id" type = "long" column="CUSTOMER_ID">
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-                <param name="sequence_name">PERSON_SEQ</param>
+                <param name="sequence_name">CUSTOMER_SEQ</param>
             </generator>
         </id>
 
         <property name="firstName" column="FIRST_NAME" type="string" not-null="true"/>
         <property name="lastName" column="LAST_NAME" type ="string" not-null="true"/>
 
-        <!--<set name="orderSet" cascade="all-delete-orphan" inverse="true" lazy="true">-->
-            <!--<key column="PERSON_ID"></key>-->
-            <!--<one-to-many class = "com.panda.later.Order"/>-->
-        <!--</set>-->
+        <set name="orderSet" cascade="all-delete-orphan" inverse="true" lazy="true">
+            <key column="CUSTOMER_ID"></key>
+            <one-to-many class = "com.panda.domain.Order"/>
+        </set>
 
     </class>
 
-    <!--<query name="query.usingInnerJoin">-->
-        <!--from Customer as p inner join p.addressSet a where a.city=?-->
-    <!--</query>-->
+    <query name="query.usingInnerJoin">
+        from Customer as c inner join c.orderSet a where a.orderID=?
+    </query>
 </hibernate-mapping>

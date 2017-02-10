@@ -1,4 +1,4 @@
-package com.panda.later;
+package com.panda.domain;
 
 import java.util.Date;
 
@@ -7,8 +7,10 @@ import java.util.Date;
  */
 public class Order {
     private Long orderID;
+    private Customer customer;
     private Date date;
     private Status status;
+
 
     public Long getOrderID() {
         return orderID;
@@ -16,6 +18,14 @@ public class Order {
 
     public void setOrderID(Long orderID) {
         this.orderID = orderID;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Date getDate() {

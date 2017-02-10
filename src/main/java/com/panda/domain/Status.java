@@ -1,4 +1,4 @@
-package com.panda.later;
+package com.panda.domain;
 
 /**
  * Created by bobby on 2/10/2017.
